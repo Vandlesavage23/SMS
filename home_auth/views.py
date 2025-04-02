@@ -52,9 +52,9 @@ def login_view(request):
             
             # Redirect user based on their role
             if user.is_admin:
-                return redirect('admin_dashboard')
+                return redirect('admin-dashboard')
             elif user.is_teacher:
-                return redirect('teacher_dashboard')
+                return redirect('teacher-dashboard')
             elif user.is_student:
                 return redirect('dashboard')
             else:

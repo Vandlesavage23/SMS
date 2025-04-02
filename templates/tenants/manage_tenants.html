@@ -1,0 +1,40 @@
+<!-- tenants/templates/tenant/manage_tenants.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Tenants</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="manage-tenants-container">
+        <h2>Manage Tenants</h2>
+        <p><a href="{% url 'tenant:register_tenant' %}">Register New Tenant</a></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tenant Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tenant in tenants %}
+                <tr>
+                    <td>{{ tenant.name }}</td>
+                    <td>{{ tenant.email }}</td>
+                    <td>{{ tenant.phone }}</td>
+                    <td>
+                        <a href="{% url 'tenant:edit_tenant' tenant.id %}">Edit</a> | 
+                        <a href="{% url 'tenant:delete_tenant' tenant.id %}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

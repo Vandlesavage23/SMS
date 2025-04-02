@@ -1,0 +1,31 @@
+<!-- tenants/templates/tenant/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Edit Profile</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="tenant_name">Name</label>
+                <input type="text" name="tenant_name" id="tenant_name" value="{{ tenant.name }}" required>
+            </div>
+            <div class="input-group">
+                <label for="tenant_email">Email</label>
+                <input type="email" name="tenant_email" id="tenant_email" value="{{ tenant.email }}" required>
+            </div>
+            <div class="input-group">
+                <label for="tenant_phone">Phone</label>
+                <input type="text" name="tenant_phone" id="tenant_phone" value="{{ tenant.phone }}" required>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

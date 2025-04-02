@@ -1,4 +1,5 @@
 # models.py
+# No additional code is needed in the $PLACEHOLDER$ section as the provided code already includes the necessary imports and the `Notification` model definition.
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings

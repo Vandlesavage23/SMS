@@ -61,7 +61,7 @@ def add_student(request):
             student_image = student_image,
             parent = parent
         )
-        create_notification(request.user, f"Added Student: {student.first_name} {student.last_name}")
+        create_notification(request.user, f"Added Student: {student.first_name} {student.last_name}") # type: ignore
         messages.success(request, "Student added Successfully")
         # return render(request, "student_list")
 
@@ -126,7 +126,7 @@ def edit_student(request,slug):
         student.section = section
         student.student_image = student_image
         student.save()
-        create_notification(request.user, f"Added Student: {student.first_name} {student.last_name}")
+        create_notification(request.user, f"Added Student: {student.first_name} {student.last_name}") 
         
         return redirect("student_list")
     return render(request, "students/edit-student.html",{'student':student, 'parent':parent} )
@@ -148,3 +148,4 @@ def delete_student(request,slug):
         create_notification(request.user, f"Deleted student: {student_name}")
         return redirect ('student_list')
     return HttpResponseForbidden()
+

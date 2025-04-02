@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from .views import school_login
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admins/', admin.site.urls),
+    path('admin/', include('admin.urls')),
     path('',include("school.urls")),
     path('student/',include("student.urls")),
-    path('authentication/',include("home_auth.urls"))
+    path('authentication/',include("home_auth.urls")),
+    path('teacher/',include("teacher.urls")),
+    path('login/', school_login, name='school_login'),
+    path('dashboard/', views.dashboard_view, name='dashboard'),
+    path('tenant/', include('tenants.urls')),
 
+    
+    
 ]
